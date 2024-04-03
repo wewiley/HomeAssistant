@@ -1,0 +1,10 @@
+- platform: rest
+  resource: https://10.1.42.143/getxml?location=/Status/SystemUnit/State/NumberOfActiveCalls
+  username: wewiley
+  password: !secret deskpro_password
+  name: "Wes DeskPro Status"
+  verify_ssl: false
+  authentication: basic
+  value_template: "{{ value_json.Status.SystemUnit.State.NumberOfActiveCalls }}"
+  scan_interval: 5
+  force_update: true
