@@ -1,0 +1,15 @@
+alias: DeskPro Call
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.wes_deskpro_status
+    from: "0"
+    to: "1"
+condition: []
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.set_status_light_red
+    metadata: {}
+mode: single
