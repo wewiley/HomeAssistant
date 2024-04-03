@@ -1,0 +1,15 @@
+alias: Desk Pro Available
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.wes_deskpro_status
+    from: "1"
+    to: "0"
+condition: []
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.set_status_light_green
+    metadata: {}
+mode: single
