@@ -1,0 +1,40 @@
+esphome:
+  name: esp-statuslight
+esp32:
+  board: wt32-eth01
+  framework:
+    type: arduino
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO0_IN
+  phy_addr: 1
+  power_pin: GPIO16
+  
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "a79xZSTkXKQKbVxJxbsh5AFfaM50XQEGg3sBM4/TX1Y="
+
+ota:
+  password: "d898ef7ad6d15ba31462d38a7fa3d57a"
+  
+web_server:
+  auth:
+    username: admin
+    password: !secret web_server_password
+light:
+  - platform: fastled_clockless
+    chipset: WS2811
+    pin: GPIO2
+    num_leds: 16
+    rgb_order: GRB
+    name: "Status Light"
+    id: status_light
+    default_transition_length: 0s
+    color_correct: [50%, 50%, 50%]
+    restore_mode: ALWAYS_OFF
