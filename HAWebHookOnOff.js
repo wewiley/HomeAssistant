@@ -1,3 +1,7 @@
+//Using People Presence on Cisco Deskpro to trigger automations via webhooks in HomeAssistant.
+//Create two automations, one for ON and one for OFF with the trigger being a webhook.
+//Copy the respective webhook URL's and paste inside the "" for the webhookURL_ON and webhookURL_OFF variables.
+
 import xapi from 'xapi';
 var peoplePresence = '';
 var peopleCount = -1;
